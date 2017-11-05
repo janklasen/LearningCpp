@@ -17,7 +17,6 @@ double			getDoubleFromUser()
 	using std::cout;
 	using std::cin;
 	//returns double from console user input
-	
 	cout << "Enter a number: ";
 
 	//following text is for reference only, already fixed, see bottom comments
@@ -54,6 +53,8 @@ Mathoperation	getMathematicalOperationFromUser()
 
 	using std::cout;
 
+	while (true)
+	{ 
 	cout << std::endl << "Which mathematical operator do you want(1 = +, 2 = -, 3 = *, 4 = /): " << std::endl;
 
 	
@@ -61,8 +62,11 @@ Mathoperation	getMathematicalOperationFromUser()
 	std::cin >> sUserInput;
 	Mathoperation operationId{static_cast<Mathoperation>(sUserInput)};
 
+	if (sUserInput == 1 || sUserInput == 2 || sUserInput == 3 || sUserInput == 4)
+	{ 
+
 	//inform user of selected choice
-	
+
 	switch (operationId)
 	{
 	case Mathoperation::ADD:
@@ -85,15 +89,12 @@ Mathoperation	getMathematicalOperationFromUser()
 		cout << std::endl << "You have selected 4 - divide \n";
 		return operationId;
 	}
-	default:
-	{	//handle incorrect input
-		cout << "You have entered: " << static_cast<short>(operationId);
-		cout << "\n Error: Only 1,2,3 and 4 are valid input. Fallback to Addition(1) \n";
-		//on incorrect user input: return 1
-		return Mathoperation::ADD;
-	}
-	}
 
+	}
+	}
+	//send user back into the loop
+	cout << " You have entered invalid input. Please try again. \n";
+	}
 }
 std::string		getMonsterTypeString(MonsterType type1)
 {

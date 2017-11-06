@@ -14,38 +14,37 @@
 //input functions
 double			getDoubleFromUser()
 {
+	//returns double from console user input
 	using std::cout;
 	using std::cin;
-	//returns double from console user input
-	cout << "Enter a number: ";
-
-	//following text is for reference only, already fixed, see bottom comments
-	//the following std::cin functions cease to work properly -Why?
-	//it seems like std::cin will be skipped the moment you input a letter instead of anumber
-	//on 2nd call the std::cin function wont be executed either
-	//the std::cin in the other function will be skipped as well
-	//conclusion: Just by inputting an "illegal" value into a function once, it gets "destroyed/disabled" permanently
-	// Reason: "By giving cin bad input, cin gets in the fail state and stops prompting the command line for input causing the loop to free run."
-	//Solution: I need to 1) check if the function returns a failstate, 2) clear the function of fail state 3) discard any "bad" characters 
-	//4) ask for integer "valid" input
-
+	
+	//loop until good input
+	while (true)
+	{ 
+	cout << "Enter a double: ";
 	double value{3.00};
-	
-	//set io stream precision/length to 16 digits and get user value
 	cin >> std::setprecision(16) >> value;
-	
-	cout << "\n" << std::setprecision(16) << "Value is: " << value << "\n";
 
-	//clears fail state of std::cin in case an illegal character was entered (i.e. a letter instead of a double)
-	cin.clear();	
-	//discard unprocessed characters. Otherwise, the bad character 
-	//is still there and you still get infinite loops. 
-	//You can simply can std::cin.ignore() to achieve this				
-	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');	
+	//has extraction failed?
+	if (cin.fail())
+	{
+		cout << "Invalid input. Try again! \n";
+		std::cin.clear();
+		std::cin.ignore(32767, '\n');
+	}
 
-	return value;														
+	//no failure, return good input
+	else
+	{
+	std::cin.ignore(32767, '\n');
+	cout << "You have entered this value: " << value << "\n";
+	return value;
+	}
+
+
+	}
 }	
-Mathoperation	getMathematicalOperationFromUser()
+char			getMathematicalOperationFromUser()
 {
 	//returns mathematical operation codified as short  1 = +, 2 = -, 3 = *, 4 = /
 	//handles I/O with user
@@ -55,44 +54,47 @@ Mathoperation	getMathematicalOperationFromUser()
 
 	while (true)
 	{ 
-	cout << std::endl << "Which mathematical operator do you want(1 = +, 2 = -, 3 = *, 4 = /): " << std::endl;
+	cout  << "Which mathematical operator do you want (+,-,*,/): ";
 
 	
-	short sUserInput{ 1 };
-	std::cin >> sUserInput;
-	Mathoperation operationId{static_cast<Mathoperation>(sUserInput)};
-
-	if (sUserInput == 1 || sUserInput == 2 || sUserInput == 3 || sUserInput == 4)
+	char userInput{ 0 };
+	std::cin >> userInput;
+	//clear buffer
+	std::cin.ignore(32767, '\n');
+	
+	//verify if input is correct
+	if (userInput == '+' || userInput == '-' || userInput == '*' || userInput == '/')
 	{ 
 
 	//inform user of selected choice
 
-	switch (operationId)
+	switch (userInput)
 	{
-	case Mathoperation::ADD:
+	case '+':
 	{
-		cout << std::endl << "You have selected 1 - addition \n";
-		return operationId;
+		cout << std::endl << "You have selected addition \n";
+		return userInput;
 	}
-	case Mathoperation::SUBSTRACT:
+	case '-':
 	{
-		cout << std::endl << "You have selected 2 - substraction \n";
-		return operationId;
+		cout << std::endl << "You have selected substraction \n";
+		return userInput;
 	}
-	case Mathoperation::MULTIPLY:
+	case '*':
 	{
-		cout << std::endl << "You have selected 3 - multiplication \n";
-		return operationId;
+		cout << std::endl << "You have selected multiplication \n";
+		return userInput;
 	}
-	case Mathoperation::DIVIDE:
+	case '/':
 	{
-		cout << std::endl << "You have selected 4 - divide \n";
-		return operationId;
+		cout << std::endl << "You have selected divide \n";
+		return userInput;
 	}
 
 	}
 	}
-	//send user back into the loop
+
+	//send user back into the loop start
 	cout << " You have entered invalid input. Please try again. \n";
 	}
 }
@@ -164,7 +166,7 @@ std::string		getUserName()
 
 	return fullname;
 }
-int 			uiGetUserInputHex()
+unsigned int 			uiGetUserInputHex()
 {
 	//ask unsigned as  integer from user and returns it
 

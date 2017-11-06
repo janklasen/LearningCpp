@@ -98,7 +98,7 @@ short		getUserAge();
 std::string	getUserName();
 
 //returns unsigned integer user input as hexadecimal
-int 		uiGetUserInputHex();
+unsigned int 		uiGetUserInputHex();
 
 //returns ads struct data from user input
 Advertising	getAdsStructInputFromUser();
@@ -116,7 +116,7 @@ std::string		getAnimalName(Animal animal1);
 //SPECIFIC SLAVE FUNCTIONS
 
 //returns mathematical operation as Mathoperation enum
-Mathoperation	getMathematicalOperationFromUser();
+char	getMathematicalOperationFromUser();
 
 //outputs height of a falling ball to console
 void	printBallHeight(double dCurrentHeight, short sSeconds);

@@ -25,14 +25,14 @@ bool	isEqual(double value1, double value2)
 	return false;
 
 }
-int		iPow(int iBase, int iExp)
+unsigned int		iPow(unsigned int iBase, unsigned int iExp)
 {
 	//returns POW based on base and exp arguments
-	//TODO: Properly handle negative exponents
+	//TODO: Properly handle negative exponents and negative bases
 	//TODO: test for exponents larger than 25 (up until 32)
 	
 
-	int iResult{iBase};
+	unsigned int iResult{iBase};
 	
 	//exponent = 0 means number evaluates to 1
 	if (iExp == 0)
@@ -42,7 +42,7 @@ int		iPow(int iBase, int iExp)
 
 	//start pow algorith
 	//currently max is a 4 byte signed integer, 2^31-1 is max
-	while (iExp != 1 && iResult < 2147483647 && iResult > -2147483647)
+	while (iExp != 1 && iResult < 4294967295)
 	{
 		--iExp;
 		iResult *= iBase;
@@ -78,7 +78,7 @@ bool	isApproximatelyEqualAbsRel(double value1, double value2, double epsilonAbs,
 
 
 //specific slave functions: only used by master functions
-double	processResult(double value1, Mathoperation operationId, double value2)
+double	processResult(double value1, char operation, double value2)
 {
 	//this function processes a result based on 3 arguments: 2 values
 	//Id of operation handled via enums defined in header of mathfunctions
@@ -86,18 +86,18 @@ double	processResult(double value1, Mathoperation operationId, double value2)
 
 	//all 4 cases for basic math operations are handled in the following:
 
-	switch (operationId)
+	switch (operation)
 	{
-	case Mathoperation::ADD:
+	case '+':
 		return value1 + value2;
 
-	case Mathoperation::SUBSTRACT:
+	case '-':
 		return value1 - value2;
 
-	case Mathoperation::MULTIPLY:
+	case '*':
 		return value1 * value2;
 
-	case Mathoperation::DIVIDE:
+	case '/':
 		return value1 / value2;
 
 	default:
@@ -192,7 +192,7 @@ void	simpleCalculator()
 
 
 	//Get Operation
-	Mathoperation operationIdExternal = getMathematicalOperationFromUser();
+	char operationIdExternal = getMathematicalOperationFromUser();
 
 
 	//Get Second Value

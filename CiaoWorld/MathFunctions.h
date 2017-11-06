@@ -29,7 +29,7 @@ enum class Mathoperation
 bool	isEqual(double value1, double value2);
 
 //returns pow of base and exp as integer
-int		iPow(int base, int exp);
+unsigned int	iPow(unsigned int base, unsigned int exp);
 
 //returns true if passed integer is even
 bool	isEven(int iUserInput);
@@ -44,7 +44,7 @@ bool	isEven(int iUserInput);
 double	fallenBallHeight(double dUserBallHeight, short sSeconds, double dCurrentHeight);
 
 //returns result of 2 double operators and 1 short operation (+/-/:/*)
-double	processResult(double value1, Mathoperation operationId, double value2);
+double	processResult(double value1, char operation, double value2);
 
 //returns if 2 doubles are approximately equal
 bool isApproximatelyEqualAbsRel(double value1, double value2, double epsilonAbs, double epsilonRel);

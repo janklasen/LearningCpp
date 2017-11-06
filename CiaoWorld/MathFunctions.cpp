@@ -15,7 +15,7 @@
 
 
 //non specific functions: can be used in a general way
-bool	isEqual(double value1, double value2)
+bool				IsEqual(double value1, double value2)
 {
 	//this function checks if two doubles are equal and returns 0/1 false/true
 
@@ -25,7 +25,7 @@ bool	isEqual(double value1, double value2)
 	return false;
 
 }
-unsigned int		iPow(unsigned int iBase, unsigned int iExp)
+unsigned int		PowInteger(unsigned int iBase, unsigned int iExp)
 {
 	//returns POW based on base and exp arguments
 	//TODO: Properly handle negative exponents and negative bases
@@ -51,7 +51,7 @@ unsigned int		iPow(unsigned int iBase, unsigned int iExp)
 
 	return iResult;
 }
-bool	isEven(int iUserInput)
+bool				IsEven(int iUserInput)
 {
 	//returns true if passed integer is even
 
@@ -62,7 +62,7 @@ bool	isEven(int iUserInput)
 		return false;
 
 }
-bool	isApproximatelyEqualAbsRel(double value1, double value2, double epsilonAbs, double epsilonRel)
+bool				IsApproximatelyEqualAbsRel(double value1, double value2, double epsilonAbs, double epsilonRel)
 
 {
 	//returns if 2 doubles are approximaely equal
@@ -78,7 +78,7 @@ bool	isApproximatelyEqualAbsRel(double value1, double value2, double epsilonAbs,
 
 
 //specific slave functions: only used by master functions
-double	processResult(double value1, char operation, double value2)
+double	ProcessResult(double value1, char operation, double value2)
 {
 	//this function processes a result based on 3 arguments: 2 values
 	//Id of operation handled via enums defined in header of mathfunctions
@@ -105,7 +105,7 @@ double	processResult(double value1, char operation, double value2)
 
 	}
 }
-double	fallenBallHeight(double dUserBallHeight, short sSeconds, double dCurrentHeight)
+double	FallenBallHeight(double dUserBallHeight, short sSeconds, double dCurrentHeight)
 
 {
 	//returns height of ball, using user specified height, current
@@ -116,7 +116,7 @@ double	fallenBallHeight(double dUserBallHeight, short sSeconds, double dCurrentH
 
 	{
 		//calculate distance an object/ball falls in sSeconds in free fall
-		double dFallenHeight{ constants::gravity * sSeconds * sSeconds * 0.5 };
+		double dFallenHeight{ constants::s_gravity * sSeconds * sSeconds * 0.5 };
 
 		//apply distance fallen (Distance of ball to ground at sSeconds) 
 		double dCurrentHeight = dUserBallHeight - dFallenHeight;
@@ -130,23 +130,23 @@ double	fallenBallHeight(double dUserBallHeight, short sSeconds, double dCurrentH
 
 }
 
-double	doubleFromFractionStruct(Fraction fraction1)
+double	DoubleFromFractionStruct(SFraction fraction1)
 {
 	//returns numerator/denominator as double
 	double fractionA = fraction1.numerator / fraction1.denominator;
 	std::cout << "Your fraction " << fraction1.numerator << " / " << "evaluates to " << fractionA << " \n";
 	return fractionA;
 }
-double	multiplyTwoFractionStructs(Fraction fraction1, Fraction fraction2)
+double	MultiplyTwoFractionStructs(SFraction fraction1, SFraction fraction2)
 {
 	//multiplies 2 fraction structs - calls other function
-	double result = doubleFromFractionStruct(fraction1) * doubleFromFractionStruct(fraction2);
+	double result = DoubleFromFractionStruct(fraction1) * DoubleFromFractionStruct(fraction2);
 	return result;
 }
 
 
 //specific master functions: 
-void	freeFallSimulator()
+void	FreeFallSimulator()
 {
 	//outputs after how many seconds that object (a ball)  has hit the ground
 	//simulates the free fall of an object at a user specified height
@@ -156,7 +156,7 @@ void	freeFallSimulator()
 	cout << "This will calculate the amount of seconds a ball needs to fall from the value in meters you specify. \n";
 
 	// get user input(= towerheight, ball height)
-	double dUserBallHeight = getDoubleFromUser();
+	double dUserBallHeight = GetDoubleFromUser();
 
 	//need both current height of object and original height 
 	//to know when to stop simulating
@@ -175,7 +175,7 @@ void	freeFallSimulator()
 	while (dCurrentHeight > 0)
 	{
 
-		dCurrentHeight = fallenBallHeight(dUserBallHeight, sSecond, dCurrentHeight);
+		dCurrentHeight = FallenBallHeight(dUserBallHeight, sSecond, dCurrentHeight);
 		printBallHeight(dCurrentHeight, sSecond);
 		sSecond++;
 		
@@ -183,30 +183,30 @@ void	freeFallSimulator()
 
 
 }
-void	simpleCalculator()
+void	SimpleCalculator()
 {
 	//simple calculation functions; uses 2 doubles and 1 operand (+/-/:/*)
 
 	//Get First Value
-	double dfirstValue = getDoubleFromUser();
+	double dfirstValue = GetDoubleFromUser();
 
 
 	//Get Operation
-	char operationIdExternal = getMathematicalOperationFromUser();
+	char operationIdExternal = GetMathematicalOperationFromUser();
 
 
 	//Get Second Value
-	double dsecondValue = getDoubleFromUser();
+	double dsecondValue = GetDoubleFromUser();
 
 	//Check if Values are equal
-	bool bIsEqual = isEqual(dfirstValue, dsecondValue);
+	bool bIsEqual = IsEqual(dfirstValue, dsecondValue);
 	if (bIsEqual)
 		std::cout << "Both operands that were entered are the same." << std::endl;
 
 
 
 	//calculate result
-	double result = processResult(dfirstValue, operationIdExternal, dsecondValue);
+	double result = ProcessResult(dfirstValue, operationIdExternal, dsecondValue);
 
 
 	//outputResult 

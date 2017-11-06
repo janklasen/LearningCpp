@@ -9,16 +9,6 @@
 
 
 //enums
-enum class Mathoperation
-{
-	//included EMPTY because my integer logic assumes 1 for ADD
-	//Mathoperation used by simpleCalculator() and its "slave" functions
-	EMPTY,
-	ADD,
-	SUBSTRACT,
-	MULTIPLY,
-	DIVIDE
-};
 
 
 
@@ -26,13 +16,13 @@ enum class Mathoperation
 //GENERAL FUNCTIONS
 
 //returns if 2 doubles are equal
-bool	isEqual(double value1, double value2);
+bool	IsEqual(double value1, double value2);
 
 //returns pow of base and exp as integer
-unsigned int	iPow(unsigned int base, unsigned int exp);
+unsigned int	PowInteger(unsigned int base, unsigned int exp);
 
 //returns true if passed integer is even
-bool	isEven(int iUserInput);
+bool	IsEven(int iUserInput);
 
 
 
@@ -41,13 +31,13 @@ bool	isEven(int iUserInput);
 //SPECIFIC SLAVE FUNCTIONS
 
 //returns height of an object/ball in free flight
-double	fallenBallHeight(double dUserBallHeight, short sSeconds, double dCurrentHeight);
+double	FallenBallHeight(double dUserBallHeight, short sSeconds, double dCurrentHeight);
 
 //returns result of 2 double operators and 1 short operation (+/-/:/*)
-double	processResult(double value1, char operation, double value2);
+double	ProcessResult(double value1, char operation, double value2);
 
 //returns if 2 doubles are approximately equal
-bool isApproximatelyEqualAbsRel(double value1, double value2, double epsilonAbs, double epsilonRel);
+bool IsApproximatelyEqualAbsRel(double value1, double value2, double epsilonAbs, double epsilonRel);
 
 
 
@@ -56,10 +46,10 @@ bool isApproximatelyEqualAbsRel(double value1, double value2, double epsilonAbs,
 //SPECIFIC MASTER FUNCTIONS
 
 //outputs to console how many seconds a ball needs to drop from a user specified height
-void	freeFallSimulator();
+void	FreeFallSimulator();
 
 //simple calculation functions; uses 2 doubles and 1 operand (+/-/:/*)
-void	simpleCalculator();
+void	SimpleCalculator();
 
 
 

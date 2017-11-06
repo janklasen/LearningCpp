@@ -12,7 +12,7 @@
 
 
 //input functions
-double			getDoubleFromUser()
+double			GetDoubleFromUser()
 {
 	//returns double from console user input
 	using std::cout;
@@ -44,7 +44,7 @@ double			getDoubleFromUser()
 
 	}
 }	
-char			getMathematicalOperationFromUser()
+char			GetMathematicalOperationFromUser()
 {
 	//returns mathematical operation codified as short  1 = +, 2 = -, 3 = *, 4 = /
 	//handles I/O with user
@@ -98,26 +98,26 @@ char			getMathematicalOperationFromUser()
 	cout << " You have entered invalid input. Please try again. \n";
 	}
 }
-std::string		getMonsterTypeString(MonsterType type1)
+std::string		GetMonsterTypeString(EMonsterType type1)
 {
 	switch (type1)
 	{
-	case MonsterType::OGRE:
+	case EMonsterType::Ogre:
 		return "Ogre";
 		break;
-	case MonsterType::DRAGON:
+	case EMonsterType::Dragon:
 		return "Dragon";
 		break;
-	case MonsterType::GIANT:
+	case EMonsterType::Giant:
 		return "Giant";
 		break;
-	case MonsterType::SPIDER:
+	case EMonsterType::Spider:
 		return "Spider";
 		break;
-	case MonsterType::ORC:
+	case EMonsterType::Orc:
 		return "Orc";
 		break;
-	case MonsterType::SLIME:
+	case EMonsterType::Slime:
 		return "Slime";
 		break;
 	default:
@@ -125,7 +125,7 @@ std::string		getMonsterTypeString(MonsterType type1)
 		break;
 }
 }
-short			getUserAge()
+short			GetAgeFromUser()
 {
 	//asks user for input and returns his age
 
@@ -141,7 +141,7 @@ short			getUserAge()
 
 	return age;
 }
-std::string		getUserName()
+std::string		GetNameFromUser()
 {
 	//returns full user name as std::string
 
@@ -166,7 +166,7 @@ std::string		getUserName()
 
 	return fullname;
 }
-unsigned int 			uiGetUserInputHex()
+unsigned int 	uiGetUserInputHex()
 {
 	//ask unsigned as  integer from user and returns it
 
@@ -179,13 +179,13 @@ unsigned int 			uiGetUserInputHex()
 
 	return value;
 }
-Advertising		getAdsStructInputFromUser()
+SAdvertising	GetAdsStructInputFromUser()
 {
 	using std::cout;
 	using std::cin;
 
 	cout << "How many ads have been shown?";
-	Advertising ad;
+	SAdvertising ad;
 	cin >> ad.adsShown;
 	cout << "\n How many percent of those ads have been clicked (0-1, i.e. 0.21 for 21%)";
 	cin >> ad.adsClicked;
@@ -194,12 +194,12 @@ Advertising		getAdsStructInputFromUser()
 
 	return ad;
 }
-Fraction		getFractionStructFromUser()
+SFraction		GetFractionStructFromUser()
 {
 	using std::cout;
 	using std::cin;
 
-	Fraction fraction;
+	SFraction fraction;
 
 	cout << "Fraction1 numerator: ";
 	cin >> fraction.numerator;
@@ -208,27 +208,27 @@ Fraction		getFractionStructFromUser()
 
 	return fraction;
 }
-std::string		getAnimalName(Animal animal1)
+std::string		GetAnimalName(EAnimal animal1)
 {
 	//returns std::string of animal name depending on enum Animal
 	switch (animal1)
 	{
-	case Animal::PIG:
+	case EAnimal::Pig:
 		return "pig";
 
-	case Animal::CHICKEN:
+	case EAnimal::Chicken:
 		return "chicken";
 
-	case Animal::GOAT:
+	case EAnimal::Goat:
 		return "goat";
 
-	case Animal::CAT:
+	case EAnimal::Cat:
 		return "cat";
 
-	case Animal::DOG:
+	case EAnimal::Dog:
 		return "dog";
 
-	case Animal::OSTRICH:
+	case EAnimal::Ostrich:
 		return "ostrich";
 
 		//handle error
@@ -291,11 +291,11 @@ void	printRows()
 		++iCount;
 	}
 }
-void	printMonster(Monster monster)
+void	printMonster(SMonster monster)
 {
-	std::cout << "This " << getMonsterTypeString(monster.type) << " is named " << monster.name << " and has " << monster.health << " health. \n";
+	std::cout << "This " << GetMonsterTypeString(monster.type) << " is named " << monster.name << " and has " << monster.health << " health. \n";
 }
-void	printAdsData(Advertising myAds)
+void	printAdsData(SAdvertising myAds)
 {
 	//for advertising 
 	using std::cout;
@@ -366,8 +366,8 @@ void	printBinaryFromUserInput()
 	//keep lowering the exponents until it fits into the integer once!
 	while (iExp != -1)
 	{
-		uiTempRemainder = uiUserInput % iPow(2, iExp);
-		iTempResult = iTempResult / iPow(2, iExp);
+		uiTempRemainder = uiUserInput % PowInteger(2, iExp);
+		iTempResult = iTempResult / PowInteger(2, iExp);
 
 
 		std::cout << uiUserInput << " / " << "2^" << iExp << " is: " << iTempResult << "  with remainder: " << uiTempRemainder << "\n";
@@ -385,16 +385,16 @@ void	printYearsPerLetterOfUsername()
 	using std::cin;
 
 	//get user age
-	double age = static_cast<double> (getUserAge());
+	double age = static_cast<double> (GetAgeFromUser());
 	//get user name
-	std::string fullname = getUserName();
+	std::string fullname = GetNameFromUser();
 
 	//count chars in string
 	double iLettersCount = fullname.length();
 	//whitespaces are counted too..
 	cout << "You have lived " << (age / iLettersCount) << " years for every letter in your name. \n";
 }
-void	printNumberOfAnimalLegs(Animal animal1, std::string animalname)
+void	printNumberOfAnimalLegs(EAnimal animal1, std::string animalname)
 {
 	//prints animal name and number of legs
 
@@ -405,27 +405,27 @@ void	printNumberOfAnimalLegs(Animal animal1, std::string animalname)
 
 	switch (animal1)
 	{
-	case Animal::PIG:
+	case EAnimal::Pig:
 		cout << "4";
 		break;
 
-	case Animal::CHICKEN:
+	case EAnimal::Chicken:
 		cout << "2";
 		break;
 
-	case Animal::GOAT:
+	case EAnimal::Goat:
 		cout << "4";
 		break;
 
-	case Animal::CAT:
+	case EAnimal::Cat:
 		cout << "4";
 		break;
 
-	case Animal::DOG:
+	case EAnimal::Dog:
 		cout << "4";
 		break;
 
-	case Animal::OSTRICH:
+	case EAnimal::Ostrich:
 		cout << "2";
 		break;
 
@@ -536,19 +536,19 @@ void	printNestedLoop3()
 
 
 //user struct related functions
-unsigned int generateId()
+unsigned int GenerateId()
 {
 	//generates unique static variable
-	static unsigned int id{ 1 };
-	std::cout << "ID: " << id << "\n";
-	id++;
+	static unsigned int s_id{ 1 };
+	std::cout << "ID: " << s_id << "\n";
+	++s_id;
 
-	return id;
+	return s_id;
 }
-void		 generateUserStructData(std::string name)
+void		 GenerateUserStructData(std::string name)
 {
-	User user1;
-	user1.id = generateId();
+	SUser user1;
+	user1.id = GenerateId();
 	user1.name = name;
 	return;
 }

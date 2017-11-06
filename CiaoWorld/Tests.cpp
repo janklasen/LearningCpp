@@ -6,25 +6,25 @@
 #include <iostream>			//for std::cout
 
 
-int testFunction()
+int TestFunction()
 {
 	//includes unit tests for several basic math functions
 	std::cout << "Starting Testing!" << "\n";
 
-	if (isEqual(0.0, 0.0) == false) 	return 1;
-	if (isEqual(1.78, 1.78) == false) 	return 2;
-	if (isEqual(-0.1, -0.1) == false) return 3;
+	if (!IsEqual(0.0, 0.0)) 	return 1;
+	if (!IsEqual(1.78, 1.78)) 	return 2;
+	if (!IsEqual(-0.1, -0.1)) return 3;
 		
-	if (iPow(2, 2) != 4) return 4;
-	if (iPow(2, 0) != 1) return 5;
-	if (iPow(5, 1) != 5) return 6;
+	if (PowInteger(2, 2) != 4) return 4;
+	if (PowInteger(2, 0) != 1) return 5;
+	if (PowInteger(5, 1) != 5) return 6;
 	
-	if (isEven(1) == true ) return 7;
-	if (isEven(2) == false) return 8;
-	if (isEven(8) == false) return 9;
+	if (IsEven(1) ) return 7;
+	if (!IsEven(2)) return 8;
+	if (!IsEven(8)) return 9;
 
-	if (isApproximatelyEqualAbsRel(0.1, 0.1, 0.01, 0.001) == false) return 10;
-	if (isApproximatelyEqualAbsRel(0.1, 0.01, 0.001, 0.001) == true) return 11;
+	if (!IsApproximatelyEqualAbsRel(0.1, 0.1, 0.01, 0.001)) return 10;
+	if (IsApproximatelyEqualAbsRel(0.1, 0.01, 0.001, 0.001)) return 11;
 
 	std::cout << "Ending testing. No errors found.\n";
 	return 0;

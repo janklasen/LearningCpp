@@ -8,7 +8,7 @@ namespace constants
 {
 
 	//constants get defined in here
-	static constexpr double gravity{ 9.8 };
+	static constexpr double s_gravity{ 9.8 };
 
 }
 

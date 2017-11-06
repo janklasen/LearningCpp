@@ -11,25 +11,25 @@
 //ENUMS
 
 //for monster functions
-enum class MonsterType
+enum class EMonsterType
 {
-	OGRE,
-	DRAGON,
-	ORC,
-	GIANT,
-	SPIDER,
-	SLIME
+	Ogre,
+	Dragon,
+	Orc,
+	Giant,
+	Spider,
+	Slime
 };
 
 //for Animal functions
-enum class Animal
+enum class EAnimal
 {
-	PIG,
-	CHICKEN,
-	GOAT,
-	CAT,
-	DOG,
-	OSTRICH
+	Pig,
+	Chicken,
+	Goat,
+	Cat,
+	Dog,
+	Ostrich
 };
 
 
@@ -39,7 +39,7 @@ enum class Animal
 //STRUCTS
 
 //for fraction functions
-struct Fraction
+struct SFraction
 {
 	double numerator;
 	double denominator;
@@ -48,16 +48,16 @@ struct Fraction
 };   //for fraction functions //for fraction functions
 
 //for monster functions 
-struct Monster
+struct SMonster
 {
-	MonsterType type;
+	EMonsterType type;
 	std::string name;
 	short health;
 
 };	
 
 //for advertising functions
-struct Advertising
+struct SAdvertising
 {
 	unsigned int adsShown;
 	double adsClicked;
@@ -66,7 +66,7 @@ struct Advertising
 };
 
 //for user data generation function
-struct User
+struct SUser
 {
 
 	short id;
@@ -86,28 +86,28 @@ struct User
 //INPUT FUNCTIONS
 
 //returns double console user input
-double	getDoubleFromUser();	
+double	GetDoubleFromUser();	
 
 //Return Monster Type as a string so it canbe printed
-std::string getMonsterTypeString(MonsterType type1);
+std::string GetMonsterTypeString(EMonsterType type1);
 
 //return user age as short
-short		getUserAge();
+short		GetAgeFromUser();
 
 //return both first and last name from userinput
-std::string	getUserName();
+std::string	GetNameFromUser();
 
 //returns unsigned integer user input as hexadecimal
 unsigned int 		uiGetUserInputHex();
 
 //returns ads struct data from user input
-Advertising	getAdsStructInputFromUser();
+SAdvertising	GetAdsStructInputFromUser();
 
 //returns fraction with data from user input
-Fraction	getFractionStructFromUser();
+SFraction	GetFractionStructFromUser();
 
 //returns animal as string
-std::string		getAnimalName(Animal animal1);
+std::string		GetAnimalName(EAnimal animal1);
 
 
 
@@ -116,7 +116,7 @@ std::string		getAnimalName(Animal animal1);
 //SPECIFIC SLAVE FUNCTIONS
 
 //returns mathematical operation as Mathoperation enum
-char	getMathematicalOperationFromUser();
+char	GetMathematicalOperationFromUser();
 
 //outputs height of a falling ball to console
 void	printBallHeight(double dCurrentHeight, short sSeconds);
@@ -137,10 +137,10 @@ void	printSizeOfAllTypes();
 void printRows();
 
 //prints monster type, name, health
-void printMonster(Monster monster);
+void printMonster(SMonster monster);
 
 //prints ads struct data and revenue of the day
-void	printAdsData(Advertising myAds);
+void	printAdsData(SAdvertising myAds);
 
 //asks user for 32bit hexadec int then prints individual colors
 void	printColorPerChannelFromUserInput();
@@ -152,7 +152,7 @@ void	printBinaryFromUserInput();
 void	printYearsPerLetterOfUsername();
 
 //prints number of animal legs and its name
-void	printNumberOfAnimalLegs(Animal animal1, std::string animalname);
+void	printNumberOfAnimalLegs(EAnimal animal1, std::string animalname);
 
 //print alphabet a-z and for each letter the ASCII code
 void	printAlphabetWithASCII();
@@ -171,10 +171,10 @@ void	printNestedLoop3();
 
 
 //generates a unique ID via a static local varaible
-unsigned int generateId();
+unsigned int GenerateId();
 
 //writes data into the user struct 
-void		 generateUserStructData(std::string name);
+void		 GenerateUserStructData(std::string name);
 
 
 

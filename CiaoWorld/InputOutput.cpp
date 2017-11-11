@@ -238,13 +238,13 @@ std::string		GetAnimalName(EAnimal animal1)
 
 
 //output functions
-void	printDouble(double value)
+void	PrintDouble(double value)
 {
 
 	//prints double to screen
 	std::cout << "Result is: " << value << "\n";
 }
-void	printSizeOfAllTypes()
+void	PrintSizeOfAllTypes()
 {
 	using std::cout;
 
@@ -262,7 +262,7 @@ void	printSizeOfAllTypes()
 	cout << "double size is:\t\t" << sizeof(double) << " bytes \n";
 	cout << "long double size is:\t\t" << sizeof(long double) << " bytes \n";
 }
-void	printBallHeight(double dCurrentHeight, short sSeconds)
+void	PrintBallHeight(double dCurrentHeight, short sSeconds)
 {
 	//outputs current ball height 
 
@@ -273,7 +273,7 @@ void	printBallHeight(double dCurrentHeight, short sSeconds)
 	else
 		std::cout << "After " << sSeconds << " seconds the ball has hit the ground. \n";
 }
-void	printRows()
+void	PrintRowsOfNumbers()
 {
 	//program to print numbers from 0 to 100 in blocks with 20 numbers each
 	int iCount = 1;
@@ -289,11 +289,11 @@ void	printRows()
 		++iCount;
 	}
 }
-void	printMonster(SMonster monster)
+void	PrintMonster(SMonster monster)
 {
 	std::cout << "This " << GetMonsterTypeString(monster.type) << " is named " << monster.name << " and has " << monster.health << " health. \n";
 }
-void	printAdsData(SAdvertising myAds)
+void	PrintAdsData(SAdvertising myAds)
 {
 	//for advertising 
 	using std::cout;
@@ -305,7 +305,7 @@ void	printAdsData(SAdvertising myAds)
 	cout << "Today you earnt: " << (myAds.adsShown * myAds.adsClicked * myAds.averageEarnt) << "\n";
 
 }
-void	printColorPerChannelFromUserInput()
+void	PrintColorPerChannelFromUserInput()
 {
 	//outputs color per channel RGBA, after reading 32 bit hexadecimal integer from user
 
@@ -340,7 +340,7 @@ void	printColorPerChannelFromUserInput()
 	cout << "Your green channel has " << channelGreen << " values out of 255 \n";
 	cout << "Your red channel has " << channelRed << " values out of 255 \n";
 }
-void	printBinaryFromUserInput()
+void	PrintBinaryFromUserInput()
 {
 	//converts to binary from unsigned integer decimal
 	//outputs sequence of binary 
@@ -375,7 +375,7 @@ void	printBinaryFromUserInput()
 	}
 
 }
-void	printYearsPerLetterOfUsername()
+void	PrintYearsPerLetterOfUsername()
 {
 	//asks user for name and age, then outputs years per letter of name
 
@@ -392,7 +392,7 @@ void	printYearsPerLetterOfUsername()
 	//whitespaces are counted too..
 	cout << "You have lived " << (age / iLettersCount) << " years for every letter in your name. \n";
 }
-void	printNumberOfAnimalLegs(EAnimal animal1, std::string animalname)
+void	PrintNumberOfAnimalLegs(EAnimal animal1, std::string animalname)
 {
 	//prints animal name and number of legs
 
@@ -434,7 +434,7 @@ void	printNumberOfAnimalLegs(EAnimal animal1, std::string animalname)
 
 	cout << " legs. \n";
 }
-void	printAlphabetWithASCII()
+void	PrintAlphabetWithASCII()
 {
 	using std::cout;
 	//starting with a (97)
@@ -450,7 +450,7 @@ void	printAlphabetWithASCII()
 	}
 
 }
-void	printNestedLoop1()
+void	PrintNestedLoop1()
 {
 	short outerCounter{ 1 };
 
@@ -470,7 +470,7 @@ void	printNestedLoop1()
 	}
 
 }
-void	printNestedLoop2()
+void	PrintNestedLoop2()
 {
 	int outerLoop{ 1 };
 	while (outerLoop <= 5)
@@ -498,7 +498,7 @@ void	printNestedLoop2()
 
 
 }
-void	printNestedLoop3()
+void	PrintNestedLoop3()
 {
 	int outerLoop{ 1 };
 	while (outerLoop <= 5)
@@ -529,6 +529,15 @@ void	printNestedLoop3()
 	}
 
 
+}
+void	PrintEvenNumbersTo20()
+{
+	for (short count = 0; count <= 20; count += 2)
+	{
+		std::cout << count;
+
+
+	}
 }
 
 

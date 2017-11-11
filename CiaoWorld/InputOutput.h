@@ -119,7 +119,7 @@ std::string		GetAnimalName(EAnimal animal1);
 char	GetMathematicalOperationFromUser();
 
 //outputs height of a falling ball to console
-void	printBallHeight(double dCurrentHeight, short sSeconds);
+void	PrintBallHeight(double dCurrentHeight, short sSeconds);
 
 
 
@@ -128,41 +128,42 @@ void	printBallHeight(double dCurrentHeight, short sSeconds);
 //OUTPUT FUNCTIONS
 
 //outputs double to console
-void	printDouble(double value);
+void	PrintDouble(double value);
 
 //outputs size of common data types to console
-void	printSizeOfAllTypes();
+void	PrintSizeOfAllTypes();
 
 //prints rows of 20 ints
-void printRows();
+void PrintRowsOfNumbers();
 
 //prints monster type, name, health
-void printMonster(SMonster monster);
+void PrintMonster(SMonster monster);
 
 //prints ads struct data and revenue of the day
-void	printAdsData(SAdvertising myAds);
+void	PrintAdsData(SAdvertising myAds);
 
 //asks user for 32bit hexadec int then prints individual colors
-void	printColorPerChannelFromUserInput();
+void	PrintColorPerChannelFromUserInput();
 
 //takes in hexadec from user, then prints that to dec, might be broken.
-void	printBinaryFromUserInput();
+void	PrintBinaryFromUserInput();
 
 //asks user for input then prints years lived per year
-void	printYearsPerLetterOfUsername();
+void	PrintYearsPerLetterOfUsername();
 
 //prints number of animal legs and its name
-void	printNumberOfAnimalLegs(EAnimal animal1, std::string animalname);
+void	PrintNumberOfAnimalLegs(EAnimal animal1, std::string animalname);
 
 //print alphabet a-z and for each letter the ASCII code
-void	printAlphabetWithASCII();
+void	PrintAlphabetWithASCII();
 
 //nested loops
-void	printNestedLoop1();
-void	printNestedLoop2();
-void	printNestedLoop3();
+void	PrintNestedLoop1();
+void	PrintNestedLoop2();
+void	PrintNestedLoop3();
 
-
+//prints numbers  to 20
+void PrintEvenNumbersTo20();
 
 
 

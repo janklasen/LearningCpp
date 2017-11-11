@@ -235,7 +235,7 @@ void	FreeFallSimulator()
 	{
 
 		dCurrentHeight = FallenBallHeight(dUserBallHeight, sSecond, dCurrentHeight);
-		PrintBallHeight(dCurrentHeight, sSecond);
+		printBallHeight(dCurrentHeight, sSecond);
 		sSecond++;
 		
 	}
@@ -269,7 +269,7 @@ void	SimpleCalculator()
 
 
 	//outputResult 
-	PrintDouble(result);
+	printDouble(result);
 
 
 }

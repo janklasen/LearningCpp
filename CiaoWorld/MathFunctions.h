@@ -53,6 +53,15 @@ double	ProcessResult(double value1, char operation, double value2);
 //returns if 2 doubles are approximately equal
 bool IsApproximatelyEqualAbsRel(double value1, double value2, double epsilonAbs, double epsilonRel);
 
+//true if you want to reply. asks user
+bool WantToRepeatHilogame();
+
+//true if won. main game loop
+bool WonHiloGameLoopSimple();
+
+//handles calling of game loop and repeat game function
+void HiloGameShell();
+
 
 
 

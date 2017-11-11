@@ -203,6 +203,83 @@ double	MultiplyTwoFractionStructs(SFraction fraction1, SFraction fraction2)
 	return result;
 }
 
+bool WantToRepeatHilogame()
+{
+	//repeats hilogame if user wants to 
+	using std::cout;
+	using std::cin;
+
+
+	char replay;
+
+	//handle user input
+	while (true)
+	{
+		cout << "Would you like to play again? (y/n): ";
+		cin >> replay;
+		cin.ignore(32767, '\n');
+
+		if (replay == 'y' || replay == 'n')
+		{
+			break;
+		}
+		else
+		{
+			cout << "Invalid Input - try again \n";
+			continue;
+		}
+	}
+	//handle whether to play again
+	if (replay == 'y')
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+bool WonHiloGameLoopSimple()
+{
+	using std::cout;
+	using std::cin;
+	short userInput;
+
+	//first pngr call is always the same
+	GetRandomNumber(1, 100);
+
+	int randomNumber = GetRandomNumber(1, 100);
+
+	for (short attempts = 0; attempts <= 7; ++attempts)
+	{
+		cout << "Your Guess #" << attempts << ": ";
+		userInput = static_cast<int>(GetDoubleFromUser());
+
+
+
+
+		if (userInput == randomNumber)
+		{
+			cout << "You win. The number is indeed: " << randomNumber << ", just like your guess: " << userInput << "\n";
+			return true;
+		}
+
+		if (userInput > randomNumber)
+		{
+			cout << "The number you entered is too big. \n";
+		}
+
+		if (userInput < randomNumber)
+		{
+			cout << "The number you entered is too small. \n";
+		}
+	}
+	cout << "You lose. The number was: " << randomNumber << "\n";
+	return false;
+}
+
+
+
 
 //specific master functions: 
 void	FreeFallSimulator()
@@ -272,4 +349,44 @@ void	SimpleCalculator()
 	PrintDouble(result);
 
 
+}
+void HiloGameShell()
+{
+	using std::cout;
+	using std::cin;
+	//	srand(static_cast<unsigned int>(time(0)));
+	//this needs to go into main()
+
+	while (true)
+	{
+		cout << "HINT: 	srand needs to run in main() \n";
+		//start initial game loop
+		//get back result of game (as int of num of attemptsleft, -1 counts as lost ;D)
+		bool hasWon = WonHiloGameLoopSimple();
+
+		if (hasWon)
+		{
+			cout << "You won the game. Congratulations. \n";
+		}
+
+		else
+		{
+			cout << "You lost the game. Too bad. \n";
+		}
+		//call interprete Game result function and print resulst
+
+		//ask if user wants to replay, in that case
+		bool willRepeat = WantToRepeatHilogame();
+
+		if (willRepeat)
+		{
+			cout << "Get ready for another round! \n";
+		}
+
+		else
+		{
+			cout << "Thanks for playing! \n";
+			break;
+		}
+	}
 }

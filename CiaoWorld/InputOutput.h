@@ -165,6 +165,20 @@ void	PrintNestedLoop3();
 //prints numbers  to 20
 void PrintEvenNumbersTo20();
 
+//with new line after each element
+void PrintIntArray(int array[], int arraylength);
+
+//with new line after each element
+void PrintStringArray(std::string array[], int arraylength);
+
+//TODO: delete; prints one specific multidimensional array
+void PrintOneSpecificMultiArray();
+
+//ASCII code per letter
+void PrintListOfLettersInString(std::string myString, int length);
+
+
+
 
 
 //USER STRUCT RELATED FUNCTIONS

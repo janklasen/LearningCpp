@@ -539,8 +539,54 @@ void	PrintEvenNumbersTo20()
 
 	}
 }
+void	PrintIntArray(int array[], int arraylength)
+{
+	for (int counter = 0; counter < arraylength; ++counter)
+	{
+		std::cout << array[counter] << " ";
+	}
+	std::cout << "\n";
+}
+void	PrintStringArray(std::string array[], int arraylength)
+{
+	for (int counter = 0; counter < arraylength; ++counter)
+	{
+		std::cout << array[counter] << "\n";
+	}
+	std::cout << "\n";
+}
+void	PrintOneSpecificMultiArray()
+{
+	//loop through 2d array and print all contents
+	//TODO: delete
+	const int numRows = 3;
+	const int numCols = 5;
+	int arrayMulti[numRows][numCols] =
+	{
+		{ 1, 2, 3, 4, 5 },
+		{ 6, 7, 8, 9, 10 },
+		{ 11, 12, 13, 14, 15 }
+	};
+	std::cout << "The array " << arrayMulti << " has a size of: " << sizeof(arrayMulti) << "\n";
 
 
+	for (int row = 0; row < numRows; ++row)
+	{
+		for (int col = 0; col < numCols; ++col)
+		{
+			std::cout << arrayMulti[row][col] << " ";
+		}
+		std::cout << "\n";
+	}
+}
+void	PrintListOfLettersInString(std::string myString, int length)
+{
+	std::cout << "The string has a size of " << length << "\n";
+	for (int counter = 0; counter < length; ++counter)
+	{
+		std::cout << "element number " << counter << " of the string containts: " << myString[counter] << " with the ASCII code of : " << static_cast<int>(myString[counter]) << "\n";
+	}
+}
 
 //user struct related functions
 unsigned int GenerateId()

@@ -208,6 +208,36 @@ void				BubbleSortStringArrayToSmallestFirst(std::string array[], short arraylen
 		}
 	}
 }
+int					SearchForIndexOfInteger(int array[], int searchedInt, int arrayLength)
+{
+	for (int counter = 0; counter < arrayLength; ++counter)
+	{
+		if (array[counter] == searchedInt)
+		{
+			std::cout << "The index of the value you are looking for is: " << counter << " ";
+			return counter;
+		}
+		else
+		{
+			//TODO: Need better error checking here. Returning 0 is a very bad solution.
+			std::cout << "The array does not contain the number you were looking for. Returning 0 instead \n.";
+			return 0;
+		}
+
+	}
+	return 0;
+}
+void				Create1DArrayFromUserInput()
+{
+	int length;
+	std::cout << "Enter the length of the desired integer array: ";
+	length = GetIntInRangeFromUser(0, 2147483647);
+	std::cout << "the length of your array is: " << length << "\n";
+
+	int *array = new int[length];
+	delete[] array;
+}
+
 
 //specific slave functions: only used by master functions
 double	ProcessResult(double value1, char operation, double value2)
@@ -276,7 +306,7 @@ double	MultiplyTwoFractionStructs(SFraction fraction1, SFraction fraction2)
 	return result;
 }
 
-bool WantToRepeatHilogame()
+bool	WantToRepeatHilogame()
 {
 	//repeats hilogame if user wants to 
 	using std::cout;
@@ -312,7 +342,7 @@ bool WantToRepeatHilogame()
 		return false;
 	}
 }
-bool WonHiloGameLoopSimple()
+bool	WonHiloGameLoopSimple()
 {
 	using std::cout;
 	using std::cin;
@@ -350,7 +380,7 @@ bool WonHiloGameLoopSimple()
 	cout << "You lose. The number was: " << randomNumber << "\n";
 	return false;
 }
-short AmountOfVowelsInString(std::string strArr, int length)
+short	AmountOfVowelsInString(std::string strArr, int length)
 {
 	int vowels{ 0 };
 	for (int counter = 0; counter < length; ++counter)

@@ -278,6 +278,7 @@ std::string		GetStringFromUser()
 	return string;
 }
 
+
 //output functions
 void	PrintDouble(double value)
 {
@@ -626,6 +627,24 @@ void	PrintListOfLettersInString(std::string myString, int length)
 	for (int counter = 0; counter < length; ++counter)
 	{
 		std::cout << "element number " << counter << " of the string containts: " << myString[counter] << " with the ASCII code of : " << static_cast<int>(myString[counter]) << "\n";
+	}
+}
+void	PrintProductsOf10()
+{
+	//TODO: want to have numRows1 and NumCols1 as arguments of the functions
+	//declare a 10x10 array
+	const int numRows1 = 10;
+	const int numCols1 = 10;
+	int product[numCols1][numRows1] = { 0 };
+
+	for (int rows = 1; rows < numRows1; ++rows)
+	{
+		for (int cols = 1; cols < numCols1; ++cols)
+		{
+			product[rows][cols] = rows * cols;
+			std::cout << product[rows][cols] << "\t";
+		}
+		std::cout << "\n";
 	}
 }
 

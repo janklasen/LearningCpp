@@ -182,6 +182,8 @@ void PrintOneSpecificMultiArray();
 //ASCII code per letter
 void PrintListOfLettersInString(std::string myString, int length);
 
+//TODO: delete; prints products of ten (if possible refactor)
+void PrintProductsOf10();
 
 
 

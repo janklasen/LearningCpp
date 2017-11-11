@@ -50,6 +50,12 @@ void BubbleSortIntArrayToSmallestFirst(int array[], short arraylength);
 //std::string sort
 void BubbleSortStringArrayToSmallestFirst(std::string array[], short arraylength);
 
+//TODO: if searched value is not in array, this will return 0 (bad solution) 
+int	 SearchForIndexOfInteger(int array[], int searchedInt, int arrayLength);
+
+//creates then deletes dynamically a 1d array. TODO: delete because useless.
+void Create1DArrayFromUserInput();
+
 
 
 
@@ -73,6 +79,8 @@ bool WonHiloGameLoopSimple();
 
 //only a,e,i,o,u handled atm (capital and regular size)
 short AmountOfVowelsInString(std::string strArr, int length);
+
+
 
 
 

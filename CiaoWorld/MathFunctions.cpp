@@ -135,6 +135,79 @@ void				PrintRandomNumbers(int amount, int rangeMin, int rangeMax)
 	}
 
 }
+void BubbleSortIntArrayToBiggestFirst(int array[], short arraylength)
+{
+
+	//bubble array sorting program from biggest to smallest
+
+	//Loop Counter is used to debug/measure perfomance of the loop, not used atm, can delete.
+	int LoopCounter = 0;
+
+	for (int counter1 = 0; counter1 < (arraylength - 1); ++counter1)
+	{
+		//for early exit if poss
+		bool isSorted = true;
+
+		for (int innerCounter = 0; innerCounter < (arraylength - counter1); ++innerCounter)
+		{
+			++LoopCounter;
+			if (array[innerCounter] < array[(innerCounter + 1)])
+			{
+				std::swap(array[innerCounter], array[innerCounter + 1]);
+				isSorted = false;
+			}
+		}
+		if (isSorted)
+		{
+			//one full inner iteration without a single swap/succesful check means we can  exit earlier
+			break;
+		}
+	}
+	//perfomance analysis would need to go here via LoopCounter
+
+}
+void BubbleSortIntArrayToSmallestFirst(int array[], short arraylength)
+{
+	for (int counter1 = 0; counter1 < (arraylength - 1); ++counter1)
+	{
+		bool isSorted = true;
+		for (int innerCounter = 0; innerCounter < (arraylength - 1); ++innerCounter)
+		{
+
+			if (array[innerCounter] > array[(innerCounter + 1)])
+			{
+				std::swap(array[innerCounter], array[innerCounter + 1]);
+				isSorted = false;
+			}
+		}
+		if (isSorted)
+		{
+			//exit loop early if possible due to no changes
+			break;
+		}
+	}
+}
+void BubbleSortStringArrayToSmallestFirst(std::string array[], short arraylength)
+{
+	for (int counter1 = 0; counter1 < (arraylength - 1); ++counter1)
+	{
+		bool isSorted = true;
+		for (int innerCounter = 0; innerCounter < (arraylength - 1); ++innerCounter)
+		{
+
+			if (array[innerCounter] > array[(innerCounter + 1)])
+			{
+				std::swap(array[innerCounter], array[innerCounter + 1]);
+				isSorted = false;
+			}
+		}
+		if (isSorted)
+		{
+			//exit loop early if possible due to no changes
+			break;
+		}
+	}
+}
 
 //specific slave functions: only used by master functions
 double	ProcessResult(double value1, char operation, double value2)
@@ -350,7 +423,7 @@ void	SimpleCalculator()
 
 
 }
-void HiloGameShell()
+void	HiloGameShell()
 {
 	using std::cout;
 	using std::cin;

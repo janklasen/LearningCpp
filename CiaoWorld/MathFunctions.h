@@ -39,6 +39,16 @@ void SetSeedBasedOnTime();
 //prints 5 random numbers every line, in specified range
 void PrintRandomNumbers(int amount, int rangeMin, int rangeMax);
 
+//sorts integer array
+void BubbleSortIntArrayToBiggestFirst(int array[], short arraylength);
+
+//sorts integer array
+void BubbleSortIntArrayToSmallestFirst(int array[], short arraylength);
+
+//std::string sort
+void BubbleSortStringArrayToSmallestFirst(std::string array[], short arraylength);
+
+
 
 
 

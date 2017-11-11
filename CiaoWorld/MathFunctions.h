@@ -24,6 +24,20 @@ unsigned int	PowInteger(unsigned int base, unsigned int exp);
 //returns true if passed integer is even
 bool	IsEven(int iUserInput);
 
+//sums all integers that a value contains i.e. 1+2+3 etc 
+int SumTo(int value);
+
+//basic random number generator, should not be used - strong periodity, seed is static
+int BasicRandomNumberGenerator();
+
+//needs seed to be initalised first as local time. otherwise good enough
+int GetRandomNumber(int min, int max);
+
+//needs testing, setting seed to system time outside of main() might get errors
+void SetSeedBasedOnTime();
+
+//prints 5 random numbers every line, in specified range
+void PrintRandomNumbers(int amount, int rangeMin, int rangeMax);
 
 
 

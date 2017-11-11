@@ -6,6 +6,8 @@
 #include "InputOutput.h"	//include to call IO function from dFallenHeight, freeFallSimulator and simpleCalculator, includes structs for fractions
 #include "MathFunctions.h"  //include enums
 #include <cmath>			//for fabs
+#include <cstdlib>			//for rand() and srand()
+#include <ctime>			//for time()
 
 //TODO: decide whether I want to move freeFallSimulator() and simpleCalculator to their own .cpp file
 //      so that mathfunctions.cpp is more seperate from input/output
@@ -75,7 +77,64 @@ bool				IsApproximatelyEqualAbsRel(double value1, double value2, double epsilonA
 	return fabs(value1 - value2) <= ((value1 > value2) ? value1 : value2) * epsilonRel;
 
 }
+int SumTo(int value)
+{
+	int result{ 0 };
 
+	for (; value > 0; --value)
+		result += value;
+
+	return result;
+}
+int BasicRandomNumberGenerator()
+{
+	static unsigned int s_seed = 5233;
+
+	s_seed = s_seed * 9898251 + 2152108;
+	return s_seed % 32768;
+}
+int GetRandomNumber(int min, int max)
+{
+	//get random number between  min and max
+	//makes use of srand() being defined as follows:
+	//srand(static_cast<unsigned int>(time(0)));
+
+
+	static const double s_fraction = (1.0 / static_cast<double>(RAND_MAX));
+
+	//std::cout << "\n Fraction is: " << fraction << "\n";
+	int random1 = rand();
+	//std::cout << "Random numberis: " << random1 << "\n";
+
+	double scaledRandom = (random1 * s_fraction);
+	//std::cout << "Random scaled numberis: " << scaledRandom << "\n";
+
+	double rangedRandom = (scaledRandom * max);
+	//std::cout << "Random scaled and ranged numberis: " << rangedRandom << "\n";
+
+	double randomfullyRanged = (rangedRandom + 1);
+	//std::cout << "Your fully ranged random is: " << randomfullyRanged << "\n";
+
+
+	return static_cast<int>(randomfullyRanged);
+}
+void SetSeedBasedOnTime()
+{//set seed for prng to system time via time C functon
+	srand(static_cast<unsigned int>(time(0)));
+}
+void PrintRandomNumbers(int amount, int rangeMin, int rangeMax)
+{
+	for (int count = 1; count <= amount; count++)
+	{
+		std::cout << GetRandomNumber(rangeMin, rangeMax) << " ";
+
+		if (count % 5 == 0)
+		{
+			std::cout << "\n";
+		}
+	}
+
+}
 
 //specific slave functions: only used by master functions
 double	ProcessResult(double value1, char operation, double value2)

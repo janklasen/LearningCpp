@@ -141,7 +141,7 @@ short			GetAgeFromUser()
 
 	return age;
 }
-std::string		GetNameFromUser()
+std::string		GetFullNameFromUser()
 {
 	//returns full user name as std::string
 
@@ -152,13 +152,11 @@ std::string		GetNameFromUser()
 	cout << "Enter your first  name: ";
 	std::string firstname;
 	std::getline(cin, firstname);
-	cout << "Your first name is: " << firstname << "\n";
 
 	//handle lastname i/o
 	cout << "Enter your last name: ";
 	std::string lastname;
 	std::getline(cin, lastname);
-	cout << "Your lastname is: " << lastname << "\n";
 
 	//assemble fullname
 	std::string fullname = firstname + " " + lastname;
@@ -387,7 +385,7 @@ void	printYearsPerLetterOfUsername()
 	//get user age
 	double age = static_cast<double> (GetAgeFromUser());
 	//get user name
-	std::string fullname = GetNameFromUser();
+	std::string fullname = GetFullNameFromUser();
 
 	//count chars in string
 	double iLettersCount = fullname.length();

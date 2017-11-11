@@ -95,7 +95,7 @@ std::string GetMonsterTypeString(EMonsterType type1);
 short		GetAgeFromUser();
 
 //return both first and last name from userinput
-std::string	GetNameFromUser();
+std::string	GetFullNameFromUser();
 
 //returns unsigned integer user input as hexadecimal
 unsigned int 		uiGetUserInputHex();

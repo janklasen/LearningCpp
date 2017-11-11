@@ -234,8 +234,49 @@ std::string		GetAnimalName(EAnimal animal1)
 		return "getAnimalName(): Unhandled enumerator";
 	}
 }
+int				GetIntInRangeFromUser(int min, int max)
+{
+	//ask user for number between min and max
+	int userNumber;
 
+	while (true)
+	{
+		std::cout << "Enter a number between " << min << " and " << max << ".\n";
+		userNumber = static_cast<int>(GetDoubleFromUser());
+		if (userNumber >= min && userNumber <= max)
+		{
+			break;
+		}
+		else
+		{
+			std::cout << "Your value is not in range \n";
+		}
+	}
+	return userNumber;
+}
+std::string		GetStringFromUser()
+{
+	//Gets everything till first whitespace 
+	//very basic user input error handling
+	using std::cout;
+	using std::cin;
+	std::string string;
+	while (true)
+	{
+		cout << "Enter a string: ";
+		cin >> string;
+		cin.ignore(32767, '\n');
 
+		if (!cin.fail())
+		{
+			break;
+		}
+		cout << "\n Bad input. Try again. \n";
+		cin.clear();
+
+	}
+	return string;
+}
 
 //output functions
 void	PrintDouble(double value)

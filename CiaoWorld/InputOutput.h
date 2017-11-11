@@ -109,6 +109,11 @@ SFraction	GetFractionStructFromUser();
 //returns animal as string
 std::string		GetAnimalName(EAnimal animal1);
 
+//gets std::string from user, basic error checking
+std::string GetStringFromUser();
+
+//TODO:still uses getDouble via static cast, might need cleaning up
+int  GetIntInRangeFromUser(int min, int max);
 
 
 

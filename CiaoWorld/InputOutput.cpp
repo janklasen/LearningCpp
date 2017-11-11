@@ -141,7 +141,7 @@ short			GetAgeFromUser()
 
 	return age;
 }
-std::string		GetNameFromUser()
+std::string		GetFullNameFromUser()
 {
 	//returns full user name as std::string
 
@@ -152,13 +152,11 @@ std::string		GetNameFromUser()
 	cout << "Enter your first  name: ";
 	std::string firstname;
 	std::getline(cin, firstname);
-	cout << "Your first name is: " << firstname << "\n";
 
 	//handle lastname i/o
 	cout << "Enter your last name: ";
 	std::string lastname;
 	std::getline(cin, lastname);
-	cout << "Your lastname is: " << lastname << "\n";
 
 	//assemble fullname
 	std::string fullname = firstname + " " + lastname;
@@ -236,17 +234,59 @@ std::string		GetAnimalName(EAnimal animal1)
 		return "getAnimalName(): Unhandled enumerator";
 	}
 }
+int				GetIntInRangeFromUser(int min, int max)
+{
+	//ask user for number between min and max
+	int userNumber;
 
+	while (true)
+	{
+		std::cout << "Enter a number between " << min << " and " << max << ".\n";
+		userNumber = static_cast<int>(GetDoubleFromUser());
+		if (userNumber >= min && userNumber <= max)
+		{
+			break;
+		}
+		else
+		{
+			std::cout << "Your value is not in range \n";
+		}
+	}
+	return userNumber;
+}
+std::string		GetStringFromUser()
+{
+	//Gets everything till first whitespace 
+	//very basic user input error handling
+	using std::cout;
+	using std::cin;
+	std::string string;
+	while (true)
+	{
+		cout << "Enter a string: ";
+		cin >> string;
+		cin.ignore(32767, '\n');
+
+		if (!cin.fail())
+		{
+			break;
+		}
+		cout << "\n Bad input. Try again. \n";
+		cin.clear();
+
+	}
+	return string;
+}
 
 
 //output functions
-void	printDouble(double value)
+void	PrintDouble(double value)
 {
 
 	//prints double to screen
 	std::cout << "Result is: " << value << "\n";
 }
-void	printSizeOfAllTypes()
+void	PrintSizeOfAllTypes()
 {
 	using std::cout;
 
@@ -264,7 +304,7 @@ void	printSizeOfAllTypes()
 	cout << "double size is:\t\t" << sizeof(double) << " bytes \n";
 	cout << "long double size is:\t\t" << sizeof(long double) << " bytes \n";
 }
-void	printBallHeight(double dCurrentHeight, short sSeconds)
+void	PrintBallHeight(double dCurrentHeight, short sSeconds)
 {
 	//outputs current ball height 
 
@@ -275,7 +315,7 @@ void	printBallHeight(double dCurrentHeight, short sSeconds)
 	else
 		std::cout << "After " << sSeconds << " seconds the ball has hit the ground. \n";
 }
-void	printRows()
+void	PrintRowsOfNumbers()
 {
 	//program to print numbers from 0 to 100 in blocks with 20 numbers each
 	int iCount = 1;
@@ -291,11 +331,11 @@ void	printRows()
 		++iCount;
 	}
 }
-void	printMonster(SMonster monster)
+void	PrintMonster(SMonster monster)
 {
 	std::cout << "This " << GetMonsterTypeString(monster.type) << " is named " << monster.name << " and has " << monster.health << " health. \n";
 }
-void	printAdsData(SAdvertising myAds)
+void	PrintAdsData(SAdvertising myAds)
 {
 	//for advertising 
 	using std::cout;
@@ -307,7 +347,7 @@ void	printAdsData(SAdvertising myAds)
 	cout << "Today you earnt: " << (myAds.adsShown * myAds.adsClicked * myAds.averageEarnt) << "\n";
 
 }
-void	printColorPerChannelFromUserInput()
+void	PrintColorPerChannelFromUserInput()
 {
 	//outputs color per channel RGBA, after reading 32 bit hexadecimal integer from user
 
@@ -342,7 +382,7 @@ void	printColorPerChannelFromUserInput()
 	cout << "Your green channel has " << channelGreen << " values out of 255 \n";
 	cout << "Your red channel has " << channelRed << " values out of 255 \n";
 }
-void	printBinaryFromUserInput()
+void	PrintBinaryFromUserInput()
 {
 	//converts to binary from unsigned integer decimal
 	//outputs sequence of binary 
@@ -377,7 +417,7 @@ void	printBinaryFromUserInput()
 	}
 
 }
-void	printYearsPerLetterOfUsername()
+void	PrintYearsPerLetterOfUsername()
 {
 	//asks user for name and age, then outputs years per letter of name
 
@@ -387,14 +427,14 @@ void	printYearsPerLetterOfUsername()
 	//get user age
 	double age = static_cast<double> (GetAgeFromUser());
 	//get user name
-	std::string fullname = GetNameFromUser();
+	std::string fullname = GetFullNameFromUser();
 
 	//count chars in string
 	double iLettersCount = fullname.length();
 	//whitespaces are counted too..
 	cout << "You have lived " << (age / iLettersCount) << " years for every letter in your name. \n";
 }
-void	printNumberOfAnimalLegs(EAnimal animal1, std::string animalname)
+void	PrintNumberOfAnimalLegs(EAnimal animal1, std::string animalname)
 {
 	//prints animal name and number of legs
 
@@ -436,7 +476,7 @@ void	printNumberOfAnimalLegs(EAnimal animal1, std::string animalname)
 
 	cout << " legs. \n";
 }
-void	printAlphabetWithASCII()
+void	PrintAlphabetWithASCII()
 {
 	using std::cout;
 	//starting with a (97)
@@ -452,7 +492,7 @@ void	printAlphabetWithASCII()
 	}
 
 }
-void	printNestedLoop1()
+void	PrintNestedLoop1()
 {
 	short outerCounter{ 1 };
 
@@ -472,7 +512,7 @@ void	printNestedLoop1()
 	}
 
 }
-void	printNestedLoop2()
+void	PrintNestedLoop2()
 {
 	int outerLoop{ 1 };
 	while (outerLoop <= 5)
@@ -500,7 +540,7 @@ void	printNestedLoop2()
 
 
 }
-void	printNestedLoop3()
+void	PrintNestedLoop3()
 {
 	int outerLoop{ 1 };
 	while (outerLoop <= 5)
@@ -532,8 +572,81 @@ void	printNestedLoop3()
 
 
 }
+void	PrintEvenNumbersTo20()
+{
+	for (short count = 0; count <= 20; count += 2)
+	{
+		std::cout << count;
 
 
+	}
+}
+void	PrintIntArray(int array[], int arraylength)
+{
+	for (int counter = 0; counter < arraylength; ++counter)
+	{
+		std::cout << array[counter] << " ";
+	}
+	std::cout << "\n";
+}
+void	PrintStringArray(std::string array[], int arraylength)
+{
+	for (int counter = 0; counter < arraylength; ++counter)
+	{
+		std::cout << array[counter] << "\n";
+	}
+	std::cout << "\n";
+}
+void	PrintOneSpecificMultiArray()
+{
+	//loop through 2d array and print all contents
+	//TODO: delete
+	const int numRows = 3;
+	const int numCols = 5;
+	int arrayMulti[numRows][numCols] =
+	{
+		{ 1, 2, 3, 4, 5 },
+		{ 6, 7, 8, 9, 10 },
+		{ 11, 12, 13, 14, 15 }
+	};
+	std::cout << "The array " << arrayMulti << " has a size of: " << sizeof(arrayMulti) << "\n";
+
+
+	for (int row = 0; row < numRows; ++row)
+	{
+		for (int col = 0; col < numCols; ++col)
+		{
+			std::cout << arrayMulti[row][col] << " ";
+		}
+		std::cout << "\n";
+	}
+}
+void	PrintListOfLettersInString(std::string myString, int length)
+{
+	std::cout << "The string has a size of " << length << "\n";
+	for (int counter = 0; counter < length; ++counter)
+	{
+		std::cout << "element number " << counter << " of the string containts: " << myString[counter] << " with the ASCII code of : " << static_cast<int>(myString[counter]) << "\n";
+	}
+}
+void	PrintProductsOf10()
+{
+	//TODO: want to have numRows1 and NumCols1 as arguments of the functions
+	//declare a 10x10 array
+	const int numRows1 = 10;
+	const int numCols1 = 10;
+	int product[numCols1][numRows1] = { 0 };
+
+	for (int rows = 1; rows < numRows1; ++rows)
+	{
+		for (int cols = 1; cols < numCols1; ++cols)
+		{
+			product[rows][cols] = rows * cols;
+			std::cout << product[rows][cols] << "\t";
+		}
+		std::cout << "\n";
+	}
+}
 
 //user struct related functions
 unsigned int GenerateId()

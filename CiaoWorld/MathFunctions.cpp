@@ -77,7 +77,7 @@ bool				IsApproximatelyEqualAbsRel(double value1, double value2, double epsilonA
 	return fabs(value1 - value2) <= ((value1 > value2) ? value1 : value2) * epsilonRel;
 
 }
-int SumTo(int value)
+int					SumTo(int value)
 {
 	int result{ 0 };
 
@@ -86,14 +86,14 @@ int SumTo(int value)
 
 	return result;
 }
-int BasicRandomNumberGenerator()
+int					BasicRandomNumberGenerator()
 {
 	static unsigned int s_seed = 5233;
 
 	s_seed = s_seed * 9898251 + 2152108;
 	return s_seed % 32768;
 }
-int GetRandomNumber(int min, int max)
+int					GetRandomNumber(int min, int max)
 {
 	//get random number between  min and max
 	//makes use of srand() being defined as follows:
@@ -118,11 +118,11 @@ int GetRandomNumber(int min, int max)
 
 	return static_cast<int>(randomfullyRanged);
 }
-void SetSeedBasedOnTime()
+void				SetSeedBasedOnTime()
 {//set seed for prng to system time via time C functon
 	srand(static_cast<unsigned int>(time(0)));
 }
-void PrintRandomNumbers(int amount, int rangeMin, int rangeMax)
+void				PrintRandomNumbers(int amount, int rangeMin, int rangeMax)
 {
 	for (int count = 1; count <= amount; count++)
 	{
@@ -235,7 +235,7 @@ void	FreeFallSimulator()
 	{
 
 		dCurrentHeight = FallenBallHeight(dUserBallHeight, sSecond, dCurrentHeight);
-		printBallHeight(dCurrentHeight, sSecond);
+		PrintBallHeight(dCurrentHeight, sSecond);
 		sSecond++;
 		
 	}
@@ -269,7 +269,7 @@ void	SimpleCalculator()
 
 
 	//outputResult 
-	printDouble(result);
+	PrintDouble(result);
 
 
 }

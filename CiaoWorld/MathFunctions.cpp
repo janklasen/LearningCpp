@@ -135,7 +135,7 @@ void				PrintRandomNumbers(int amount, int rangeMin, int rangeMax)
 	}
 
 }
-void BubbleSortIntArrayToBiggestFirst(int array[], short arraylength)
+void				BubbleSortIntArrayToBiggestFirst(int array[], short arraylength)
 {
 
 	//bubble array sorting program from biggest to smallest
@@ -166,7 +166,7 @@ void BubbleSortIntArrayToBiggestFirst(int array[], short arraylength)
 	//perfomance analysis would need to go here via LoopCounter
 
 }
-void BubbleSortIntArrayToSmallestFirst(int array[], short arraylength)
+void				BubbleSortIntArrayToSmallestFirst(int array[], short arraylength)
 {
 	for (int counter1 = 0; counter1 < (arraylength - 1); ++counter1)
 	{
@@ -187,7 +187,7 @@ void BubbleSortIntArrayToSmallestFirst(int array[], short arraylength)
 		}
 	}
 }
-void BubbleSortStringArrayToSmallestFirst(std::string array[], short arraylength)
+void				BubbleSortStringArrayToSmallestFirst(std::string array[], short arraylength)
 {
 	for (int counter1 = 0; counter1 < (arraylength - 1); ++counter1)
 	{
@@ -350,8 +350,30 @@ bool WonHiloGameLoopSimple()
 	cout << "You lose. The number was: " << randomNumber << "\n";
 	return false;
 }
-
-
+short AmountOfVowelsInString(std::string strArr, int length)
+{
+	int vowels{ 0 };
+	for (int counter = 0; counter < length; ++counter)
+	{
+		switch (strArr[counter])
+		{
+		case 'a':
+		case 'o':
+		case 'e':
+		case 'i':
+		case 'u':
+		case 'A':
+		case 'E':
+		case 'I':
+		case 'O':
+		case 'U':
+		{
+			++vowels;
+		}
+		}
+	}
+	return vowels;
+}
 
 
 //specific master functions: 
@@ -462,4 +484,46 @@ void	HiloGameShell()
 			break;
 		}
 	}
+}
+void	PrintSortedNamesFromUserInput()
+{
+	using std::cout;
+	using std::cin;
+
+	//how many names? - array length (max is 100 atm)
+	cout << "How many names would you like to enter? ";
+	short amountNames = GetIntInRangeFromUser(1, 100);
+	cout << "\n";
+
+	//dynamically create std::string array
+	std::string *nameAr = new std::string[amountNames];
+
+	//assign user values in the loop: 
+	for (short counter = 0; counter < amountNames; ++counter)
+	{
+		nameAr[counter] = GetStringFromUser();
+
+	}
+
+	//sorting and printing functions get called
+
+	BubbleSortStringArrayToSmallestFirst(nameAr, amountNames);
+	cout << "\nYour sorted list: \n";
+	PrintStringArray(nameAr, amountNames);
+
+}
+void	PrintAmountOfVowelsFromUserInput()
+{
+	//asks user to input a string
+	//prints how many vowels said string contains
+	//only a,e,i,o,u handled atm. no y etc
+	std::string strArr = GetStringFromUser();
+	int length = strArr.length();
+
+	short vowelsInString = AmountOfVowelsInString(strArr, length);
+	std::cout << "Your string contains " << vowelsInString << " vowels. \n";
+
+	const int arrayLength = 7;
+	char name[arrayLength] = "Mollie";
+	int numVowels = 0;
 }

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>			//for std::string in the string sorting functions
+
 //start  header guard
 #ifndef MATHFUNCTIONS_H
 #define MATHFUNCTIONS_H
@@ -69,10 +71,8 @@ bool WantToRepeatHilogame();
 //true if won. main game loop
 bool WonHiloGameLoopSimple();
 
-//handles calling of game loop and repeat game function
-void HiloGameShell();
-
-
+//only a,e,i,o,u handled atm (capital and regular size)
+short AmountOfVowelsInString(std::string strArr, int length);
 
 
 
@@ -84,7 +84,14 @@ void	FreeFallSimulator();
 //simple calculation functions; uses 2 doubles and 1 operand (+/-/:/*)
 void	SimpleCalculator();
 
+//handles calling of game loop and repeat game function
+void HiloGameShell();
 
+//get string list from user then output sorted strings
+void PrintSortedNamesFromUserInput();
+
+//gets string from user and prints how many vowels are contained. aouie only
+void PrintAmountOfVowelsFromUserInput();
 
 
 //end header guard

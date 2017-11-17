@@ -4,7 +4,7 @@
 #define TESTS_H
 
 //forward declarations
-int  TestFunction();
-
+int  TestSimpleMath();			//basic math functions
+int  TestArraySort();			//simple int array sorting 
 
 #endif

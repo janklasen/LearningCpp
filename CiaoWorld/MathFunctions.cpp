@@ -137,12 +137,7 @@ void				PrintRandomNumbers(int amount, int rangeMin, int rangeMax)
 }
 void				BubbleSortIntArrayToBiggestFirst(int array[], short arraylength)
 {
-
 	//bubble array sorting program from biggest to smallest
-
-	//Loop Counter is used to debug/measure perfomance of the loop, not used atm, can delete.
-	int LoopCounter = 0;
-
 	for (int counter1 = 0; counter1 < (arraylength - 1); ++counter1)
 	{
 		//for early exit if poss
@@ -150,7 +145,6 @@ void				BubbleSortIntArrayToBiggestFirst(int array[], short arraylength)
 
 		for (int innerCounter = 0; innerCounter < (arraylength - counter1); ++innerCounter)
 		{
-			++LoopCounter;
 			if (array[innerCounter] < array[(innerCounter + 1)])
 			{
 				std::swap(array[innerCounter], array[innerCounter + 1]);
@@ -163,20 +157,16 @@ void				BubbleSortIntArrayToBiggestFirst(int array[], short arraylength)
 			break;
 		}
 	}
-	//perfomance analysis would need to go here via LoopCounter
-
 }
 void				BubbleSortIntArrayToSmallestFirst(int array[], short arraylength)
 {	
 	//track loop iterations
-	int LoopCounter{ 0 };
 	for (int counter1 = 0; counter1 < (arraylength - 1); ++counter1)
 	{
 	
 		bool isSorted = true;
 		for (int innerCounter = 0; innerCounter < (arraylength - 1); ++innerCounter)
 		{
-			++LoopCounter;
 			if (array[innerCounter] > array[(innerCounter + 1)])
 			{
 				std::swap(array[innerCounter], array[innerCounter + 1]);
@@ -190,7 +180,6 @@ void				BubbleSortIntArrayToSmallestFirst(int array[], short arraylength)
 		}
 
 	}
-	std::cout << "Iterations needed: " << LoopCounter << "\n";
 }
 void				BubbleSortStringArrayToSmallestFirst(std::string array[], short arraylength)
 {

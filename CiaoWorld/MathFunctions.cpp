@@ -283,7 +283,15 @@ void				Create1DArrayFromUserInput()
 	std::cout << "the length of your array is: " << length << "\n";
 
 	int *array = new int[length];
+
+		char input;
+		std::cout << "Enter any letter to delete the array: ";
+		std::cin >> input;
+		std::cin.clear();
+		std::cin.ignore(32767, '\n');
+
 	delete[] array;
+	array = nullptr;
 }
 
 

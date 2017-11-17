@@ -135,7 +135,7 @@ void				PrintRandomNumbers(int amount, int rangeMin, int rangeMax)
 	}
 
 }
-void				BubbleSortIntArrayToBiggestFirst(int array[], short arraylength)
+void				BubbleSortIntArrayToBiggestFirst(int *array, short arraylength)
 {
 	//bubble array sorting program from biggest to smallest
 	for (int counter1 = 0; counter1 < (arraylength - 1); ++counter1)
@@ -158,7 +158,7 @@ void				BubbleSortIntArrayToBiggestFirst(int array[], short arraylength)
 		}
 	}
 }
-void				BubbleSortIntArrayToSmallestFirst(int array[], short arraylength)
+void				BubbleSortIntArrayToSmallestFirst(int *array, short arraylength)
 {	
 	//track loop iterations
 	for (int counter1 = 0; counter1 < (arraylength - 1); ++counter1)
@@ -181,7 +181,7 @@ void				BubbleSortIntArrayToSmallestFirst(int array[], short arraylength)
 
 	}
 }
-void				BubbleSortStringArrayToSmallestFirst(std::string array[], short arraylength)
+void				BubbleSortStringArrayToSmallestFirst(std::string *array, short arraylength)
 {
 	for (int counter1 = 0; counter1 < (arraylength - 1); ++counter1)
 	{
@@ -202,7 +202,7 @@ void				BubbleSortStringArrayToSmallestFirst(std::string array[], short arraylen
 		}
 	}
 }
-void				SimpleSortIntArrayToSmallestFirst(int array[], short arraylength)
+void				SimpleSortIntArrayToSmallestFirst(int *array, short arraylength)
 {
 	for (int index = 0; index < arraylength - 1; ++index)
 	{
@@ -220,7 +220,7 @@ void				SimpleSortIntArrayToSmallestFirst(int array[], short arraylength)
 		std::swap(array[index], array[(smallestIndex)]);
 	}
 }
-void				SimpleSortIntArrayToBiggestFirst(int array[], short arraylength)
+void				SimpleSortIntArrayToBiggestFirst(int *array, short arraylength)
 {
 	for (int index = 0; index < arraylength - 1; ++index)
 	{
@@ -238,7 +238,7 @@ void				SimpleSortIntArrayToBiggestFirst(int array[], short arraylength)
 		std::swap(array[index], array[(biggestIndex)]);
 	}
 }
-void				SimpleSortStringArrayToSmallestFirst(std::string array[], short arraylength)
+void				SimpleSortStringArrayToSmallestFirst(std::string *array, short arraylength)
 {
 	for (int index = 0; index < arraylength - 1; ++index)
 	{
@@ -256,7 +256,7 @@ void				SimpleSortStringArrayToSmallestFirst(std::string array[], short arraylen
 		std::swap(array[index], array[(smallestIndex)]);
 	}
 }
-int					SearchForIndexOfInteger(int array[], int searchedInt, int arrayLength)
+int					SearchForIndexOfInteger(int *array, int searchedInt, int arrayLength)
 {
 	for (int counter = 0; counter < arrayLength; ++counter)
 	{

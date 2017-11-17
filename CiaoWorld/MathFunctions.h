@@ -50,6 +50,15 @@ void BubbleSortIntArrayToSmallestFirst(int array[], short arraylength);
 //std::string sort
 void BubbleSortStringArrayToSmallestFirst(std::string array[], short arraylength);
 
+//should be preferred over bubble sort
+void	SimpleSortIntArrayToBiggestFirst(int array[], short arraylength);
+
+//should be preferred over bubble sort
+void	SimpleSortIntArrayToSmallestFirst(int array[], short arraylength);
+
+//should be preferred over bubble sort
+void	SimpleSortStringArrayToSmallestFirst(int array[], short arraylength);
+
 //TODO: if searched value is not in array, this will return 0 (bad solution) 
 int	 SearchForIndexOfInteger(int array[], int searchedInt, int arrayLength);
 

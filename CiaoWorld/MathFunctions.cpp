@@ -167,13 +167,16 @@ void				BubbleSortIntArrayToBiggestFirst(int array[], short arraylength)
 
 }
 void				BubbleSortIntArrayToSmallestFirst(int array[], short arraylength)
-{
+{	
+	//track loop iterations
+	int LoopCounter{ 0 };
 	for (int counter1 = 0; counter1 < (arraylength - 1); ++counter1)
 	{
+	
 		bool isSorted = true;
 		for (int innerCounter = 0; innerCounter < (arraylength - 1); ++innerCounter)
 		{
-
+			++LoopCounter;
 			if (array[innerCounter] > array[(innerCounter + 1)])
 			{
 				std::swap(array[innerCounter], array[innerCounter + 1]);
@@ -185,7 +188,9 @@ void				BubbleSortIntArrayToSmallestFirst(int array[], short arraylength)
 			//exit loop early if possible due to no changes
 			break;
 		}
+
 	}
+	std::cout << "Iterations needed: " << LoopCounter << "\n";
 }
 void				BubbleSortStringArrayToSmallestFirst(std::string array[], short arraylength)
 {
@@ -206,6 +211,60 @@ void				BubbleSortStringArrayToSmallestFirst(std::string array[], short arraylen
 			//exit loop early if possible due to no changes
 			break;
 		}
+	}
+}
+void				SimpleSortIntArrayToSmallestFirst(int array[], short arraylength)
+{
+	for (int index = 0; index < arraylength - 1; ++index)
+	{
+		int smallestIndex;
+		int currentIndex;
+		smallestIndex = index;
+
+		for (currentIndex = index + 1; currentIndex < arraylength; ++currentIndex)
+		{
+			if (array[currentIndex] < array[(smallestIndex)])
+			{
+				smallestIndex = currentIndex;
+			}
+		}
+		std::swap(array[index], array[(smallestIndex)]);
+	}
+}
+void				SimpleSortIntArrayToBiggestFirst(int array[], short arraylength)
+{
+	for (int index = 0; index < arraylength - 1; ++index)
+	{
+		int biggestIndex;
+		int currentIndex;
+		biggestIndex = index;
+
+		for (currentIndex = index + 1; currentIndex < arraylength; ++currentIndex)
+		{
+			if (array[currentIndex] > array[(biggestIndex)])
+			{
+				biggestIndex = currentIndex;
+			}
+		}
+		std::swap(array[index], array[(biggestIndex)]);
+	}
+}
+void				SimpleSortStringArrayToSmallestFirst(std::string array[], short arraylength)
+{
+	for (int index = 0; index < arraylength - 1; ++index)
+	{
+		int smallestIndex;
+		int currentIndex;
+		smallestIndex = index;
+
+		for (currentIndex = index + 1; currentIndex < arraylength; ++currentIndex)
+		{
+			if (array[currentIndex] < array[(smallestIndex)])
+			{
+				smallestIndex = currentIndex;
+			}
+		}
+		std::swap(array[index], array[(smallestIndex)]);
 	}
 }
 int					SearchForIndexOfInteger(int array[], int searchedInt, int arrayLength)
@@ -537,7 +596,7 @@ void	PrintSortedNamesFromUserInput()
 
 	//sorting and printing functions get called
 
-	BubbleSortStringArrayToSmallestFirst(nameAr, amountNames);
+	SimpleSortStringArrayToSmallestFirst(nameAr, amountNames);
 	cout << "\nYour sorted list: \n";
 	PrintStringArray(nameAr, amountNames);
 

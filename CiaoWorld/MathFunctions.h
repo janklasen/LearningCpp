@@ -42,25 +42,25 @@ void SetSeedBasedOnTime();
 void PrintRandomNumbers(int amount, int rangeMin, int rangeMax);
 
 //sorts integer array
-void BubbleSortIntArrayToBiggestFirst(int array[], short arraylength);
+void BubbleSortIntArrayToBiggestFirst(int *array, short arraylength);
 
 //sorts integer array
-void BubbleSortIntArrayToSmallestFirst(int array[], short arraylength);
+void BubbleSortIntArrayToSmallestFirst(int *array, short arraylength);
 
 //std::string sort
-void BubbleSortStringArrayToSmallestFirst(std::string array[], short arraylength);
+void BubbleSortStringArrayToSmallestFirst(std::string *array, short arraylength);
 
 //should be preferred over bubble sort
-void	SimpleSortIntArrayToBiggestFirst(int array[], short arraylength);
+void	SimpleSortIntArrayToBiggestFirst(int *array, short arraylength);
 
 //should be preferred over bubble sort
-void	SimpleSortIntArrayToSmallestFirst(int array[], short arraylength);
+void	SimpleSortIntArrayToSmallestFirst(int *array, short arraylength);
 
 //should be preferred over bubble sort
-void	SimpleSortStringArrayToSmallestFirst(std::string array[], short arraylength);
+void	SimpleSortStringArrayToSmallestFirst(std::string *array, short arraylength);
 
 //TODO: if searched value is not in array, this will return 0 (bad solution) 
-int	 SearchForIndexOfInteger(int array[], int searchedInt, int arrayLength);
+int	 SearchForIndexOfInteger(int *array, int searchedInt, int arrayLength);
 
 //creates then deletes dynamically a 1d array. TODO: delete because useless.
 void Create1DArrayFromUserInput();

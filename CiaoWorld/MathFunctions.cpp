@@ -135,9 +135,14 @@ void				PrintRandomNumbers(int amount, int rangeMin, int rangeMax)
 	}
 
 }
-void				BubbleSortIntArrayToBiggestFirst(int array[], short arraylength)
+void				BubbleSortIntArrayToBiggestFirst(int *array, short arraylength)
 {
-	//bubble array sorting program from biggest to smallest
+	//check for nullptr for safety
+	if (array == nullptr)
+	{
+		std::cout << "ERROR: BubbleSortIntArrayToBiggestFirst was passed a nullptr \n";
+		return;
+	}
 	for (int counter1 = 0; counter1 < (arraylength - 1); ++counter1)
 	{
 		//for early exit if poss
@@ -158,9 +163,14 @@ void				BubbleSortIntArrayToBiggestFirst(int array[], short arraylength)
 		}
 	}
 }
-void				BubbleSortIntArrayToSmallestFirst(int array[], short arraylength)
+void				BubbleSortIntArrayToSmallestFirst(int *array, short arraylength)
 {	
-	//track loop iterations
+	//check for nullptr for safety
+	if (array == nullptr)
+	{
+		std::cout << "ERROR: BubbleSortIntArrayToSmallestFirst was passed a nullptr \n";
+		return;
+	}
 	for (int counter1 = 0; counter1 < (arraylength - 1); ++counter1)
 	{
 	
@@ -181,8 +191,14 @@ void				BubbleSortIntArrayToSmallestFirst(int array[], short arraylength)
 
 	}
 }
-void				BubbleSortStringArrayToSmallestFirst(std::string array[], short arraylength)
+void				BubbleSortStringArrayToSmallestFirst(std::string *array, short arraylength)
 {
+	//check for nullptr for safety
+	if (array == nullptr)
+	{
+		std::cout << "ERROR: BubbleSortStringArrayToSmallestFirst was passed a nullptr \n";
+		return;
+	}
 	for (int counter1 = 0; counter1 < (arraylength - 1); ++counter1)
 	{
 		bool isSorted = true;
@@ -202,8 +218,14 @@ void				BubbleSortStringArrayToSmallestFirst(std::string array[], short arraylen
 		}
 	}
 }
-void				SimpleSortIntArrayToSmallestFirst(int array[], short arraylength)
+void				SimpleSortIntArrayToSmallestFirst(int *array, short arraylength)
 {
+	//check for nullptr for safety
+	if (array == nullptr)
+	{
+		std::cout << "ERROR: SimpleSortIntArrayToSmallestFirst was passed a nullptr \n";
+		return;
+	}
 	for (int index = 0; index < arraylength - 1; ++index)
 	{
 		int smallestIndex;
@@ -220,8 +242,14 @@ void				SimpleSortIntArrayToSmallestFirst(int array[], short arraylength)
 		std::swap(array[index], array[(smallestIndex)]);
 	}
 }
-void				SimpleSortIntArrayToBiggestFirst(int array[], short arraylength)
+void				SimpleSortIntArrayToBiggestFirst(int *array, short arraylength)
 {
+	//check for nullptr for safety
+	if (array == nullptr)
+	{
+		std::cout << "ERROR: SimpleSortIntArrayToBiggestFirst was passed a nullptr \n";
+		return;
+	}
 	for (int index = 0; index < arraylength - 1; ++index)
 	{
 		int biggestIndex;
@@ -238,8 +266,14 @@ void				SimpleSortIntArrayToBiggestFirst(int array[], short arraylength)
 		std::swap(array[index], array[(biggestIndex)]);
 	}
 }
-void				SimpleSortStringArrayToSmallestFirst(std::string array[], short arraylength)
+void				SimpleSortStringArrayToSmallestFirst(std::string *array, short arraylength)
 {
+	//check for nullptr for safety
+	if (array == nullptr)
+	{
+		std::cout << "ERROR: SimpleSortStringArrayToSmallestFirst was passed a nullptr \n";
+		return;
+	}
 	for (int index = 0; index < arraylength - 1; ++index)
 	{
 		int smallestIndex;
@@ -256,8 +290,14 @@ void				SimpleSortStringArrayToSmallestFirst(std::string array[], short arraylen
 		std::swap(array[index], array[(smallestIndex)]);
 	}
 }
-int					SearchForIndexOfInteger(int array[], int searchedInt, int arrayLength)
+int					SearchForIndexOfInteger(int *array, int searchedInt, int arrayLength)
 {
+	//check for nullptr for safety
+	if (array == nullptr)
+	{
+		std::cout << "ERROR: SearchForIndexOfInteger was passed a nullptr \n";
+		return 0;
+	}
 	for (int counter = 0; counter < arrayLength; ++counter)
 	{
 		if (array[counter] == searchedInt)

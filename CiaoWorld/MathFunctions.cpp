@@ -628,8 +628,15 @@ void	PrintSortedNamesFromUserInput()
 	cout << "\n";
 
 	//dynamically create std::string array
-	std::string *nameAr = new std::string[amountNames];
+	std::string *nameAr = new(std::nothrow) std::string[amountNames];
 
+	if (!nameAr)
+	{
+		std::cout << "ERROR: PrintSortedNamesFromUserInput() could not allocate memory.\n";
+	}
+
+	else
+	{
 	//assign user values in the loop: 
 	for (short counter = 0; counter < amountNames; ++counter)
 	{
@@ -644,7 +651,7 @@ void	PrintSortedNamesFromUserInput()
 	PrintStringArray(nameAr, amountNames);
 	delete[] nameAr;
 	nameAr = nullptr;
-
+	}
 }
 void	PrintAmountOfVowelsFromUserInput()
 {

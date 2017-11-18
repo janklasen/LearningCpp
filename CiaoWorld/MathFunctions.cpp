@@ -322,13 +322,19 @@ void				Create1DArrayFromUserInput()
 	length = GetIntInRangeFromUser(0, 2147483647);
 	std::cout << "the length of your array is: " << length << "\n";
 
-	int *array = new int[length];
+	int *array = new (std::nothrow) int[length];
+	//handle errors
+	if (!array)
+	{
+		std::cout << "ERROR: Create1DArrayFromUserInput() could not allocate memory\n";
+		return;
+	}
 
-		char input;
-		std::cout << "Enter any letter to delete the array: ";
-		std::cin >> input;
-		std::cin.clear();
-		std::cin.ignore(32767, '\n');
+	char input;
+	std::cout << "Enter any letter to delete the array: ";
+	std::cin >> input;
+	std::cin.clear();
+	std::cin.ignore(32767, '\n');
 
 	delete[] array;
 	array = nullptr;
@@ -636,6 +642,8 @@ void	PrintSortedNamesFromUserInput()
 	SimpleSortStringArrayToSmallestFirst(nameAr, amountNames);
 	cout << "\nYour sorted list: \n";
 	PrintStringArray(nameAr, amountNames);
+	delete[] nameAr;
+	nameAr = nullptr;
 
 }
 void	PrintAmountOfVowelsFromUserInput()

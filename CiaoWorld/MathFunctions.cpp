@@ -636,6 +636,8 @@ void	PrintSortedNamesFromUserInput()
 	SimpleSortStringArrayToSmallestFirst(nameAr, amountNames);
 	cout << "\nYour sorted list: \n";
 	PrintStringArray(nameAr, amountNames);
+	delete[] nameAr;
+	nameAr = nullptr;
 
 }
 void	PrintAmountOfVowelsFromUserInput()

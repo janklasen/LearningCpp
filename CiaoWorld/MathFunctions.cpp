@@ -398,7 +398,6 @@ double	DoubleFromFractionStruct(const SFraction &fraction1)
 {
 	//returns numerator/denominator as double
 	double fractionA = fraction1.numerator / fraction1.denominator;
-	std::cout << "Your fraction " << fraction1.numerator << " / " << "evaluates to " << fractionA << " \n";
 	return fractionA;
 }
 double	MultiplyTwoFractionStructs(const SFraction &fraction1, const SFraction &fraction2)

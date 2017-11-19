@@ -3,8 +3,13 @@
 #ifndef TESTS_H
 #define TESTS_H
 
+
+
 //forward declarations
-int  TestSimpleMath();			//basic math functions
-int  TestArraySort();			//simple int array sorting 
+short	TestSimpleMath();			//basic math functions
+short	TestArraySort();			//simple int array sorting 
+short	TestSFraction();
+
+void QuickTest();				//calls all test functions but does not return error code for now.
 
 #endif

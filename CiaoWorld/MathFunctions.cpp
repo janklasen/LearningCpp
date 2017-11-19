@@ -3,7 +3,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include "Constants.h"		//include gravity
-#include "InputOutput.h"	//include to call IO function from dFallenHeight, freeFallSimulator and simpleCalculator, includes structs for fractions
+
 #include "MathFunctions.h"  //include enums
 #include <cmath>			//for fabs
 #include <cstdlib>			//for rand() and srand()
@@ -394,14 +394,14 @@ double	FallenBallHeight(double dUserBallHeight, short sSeconds, double dCurrentH
 
 }
 
-double	DoubleFromFractionStruct(SFraction fraction1)
+double	DoubleFromFractionStruct(const SFraction &fraction1)
 {
 	//returns numerator/denominator as double
 	double fractionA = fraction1.numerator / fraction1.denominator;
 	std::cout << "Your fraction " << fraction1.numerator << " / " << "evaluates to " << fractionA << " \n";
 	return fractionA;
 }
-double	MultiplyTwoFractionStructs(SFraction fraction1, SFraction fraction2)
+double	MultiplyTwoFractionStructs(const SFraction &fraction1, const SFraction &fraction2)
 {
 	//multiplies 2 fraction structs - calls other function
 	double result = DoubleFromFractionStruct(fraction1) * DoubleFromFractionStruct(fraction2);
@@ -635,6 +635,7 @@ void	PrintSortedNamesFromUserInput()
 		std::cout << "ERROR: PrintSortedNamesFromUserInput() could not allocate memory.\n";
 	}
 
+	//continue with else if no errors with memory allocation
 	else
 	{
 	//assign user values in the loop: 

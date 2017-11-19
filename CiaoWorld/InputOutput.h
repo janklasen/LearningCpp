@@ -142,10 +142,10 @@ void	PrintSizeOfAllTypes();
 void PrintRowsOfNumbers();
 
 //prints monster type, name, health
-void PrintMonster(SMonster monster);
+void PrintMonster(const SMonster &monster);
 
 //prints ads struct data and revenue of the day
-void	PrintAdsData(SAdvertising myAds);
+void	PrintAdsData(const SAdvertising &myAds);
 
 //asks user for 32bit hexadec int then prints individual colors
 void	PrintColorPerChannelFromUserInput();
@@ -174,13 +174,13 @@ void PrintEvenNumbersTo20();
 void PrintIntArray(int array[], int arraylength);
 
 //with new line after each element
-void PrintStringArray(std::string array[], int arraylength);
+void PrintStringArray(std::string *array, int arraylength);
 
 //TODO: delete; prints one specific multidimensional array
 void PrintOneSpecificMultiArray();
 
 //ASCII code per letter
-void PrintListOfLettersInString(std::string myString, int length);
+void PrintListOfLettersInString(const std::string &myString, int length);
 
 //TODO: delete; prints products of ten (if possible refactor)
 void PrintProductsOf10();
@@ -196,7 +196,7 @@ void PrintProductsOf10();
 unsigned int GenerateId();
 
 //writes data into the user struct 
-void		 GenerateUserStructData(std::string name);
+void		 GenerateUserStructData(const std::string &name);
 
 
 

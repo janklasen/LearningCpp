@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>			//for std::string in the string sorting functions
+#include "InputOutput.h"	//include to call IO function from dFallenHeight, freeFallSimulator and simpleCalculator, includes structs for fractions
 
 //start  header guard
 #ifndef MATHFUNCTIONS_H
@@ -89,8 +90,11 @@ bool WonHiloGameLoopSimple();
 //only a,e,i,o,u handled atm (capital and regular size)
 short AmountOfVowelsInString(std::string strArr, int length);
 
+//return fraction as a double
+double	DoubleFromFractionStruct(const SFraction &fraction1);
 
-
+//return result of multiplying 2 SFraction structs
+double	MultiplyTwoFractionStructs(const SFraction &fraction1, const SFraction &fraction2);
 
 
 //SPECIFIC MASTER FUNCTIONS

@@ -98,7 +98,7 @@ char			GetMathematicalOperationFromUser()
 	cout << " You have entered invalid input. Please try again. \n";
 	}
 }
-std::string		GetMonsterTypeString(EMonsterType type1)
+std::string		GetMonsterTypeString (EMonsterType type1)
 {
 	switch (type1)
 	{
@@ -331,11 +331,11 @@ void	PrintRowsOfNumbers()
 		++iCount;
 	}
 }
-void	PrintMonster(SMonster monster)
+void	PrintMonster(const SMonster &monster)
 {
 	std::cout << "This " << GetMonsterTypeString(monster.type) << " is named " << monster.name << " and has " << monster.health << " health. \n";
 }
-void	PrintAdsData(SAdvertising myAds)
+void	PrintAdsData(const SAdvertising &myAds)
 {
 	//for advertising 
 	using std::cout;
@@ -589,7 +589,7 @@ void	PrintIntArray(int array[], int arraylength)
 	}
 	std::cout << "\n";
 }
-void	PrintStringArray(std::string array[], int arraylength)
+void	PrintStringArray(std::string *array, int arraylength)
 {
 	for (int counter = 0; counter < arraylength; ++counter)
 	{
@@ -621,7 +621,7 @@ void	PrintOneSpecificMultiArray()
 		std::cout << "\n";
 	}
 }
-void	PrintListOfLettersInString(std::string myString, int length)
+void	PrintListOfLettersInString(const std::string &myString, int length)
 {
 	std::cout << "The string has a size of " << length << "\n";
 	for (int counter = 0; counter < length; ++counter)
@@ -658,7 +658,7 @@ unsigned int GenerateId()
 
 	return s_id;
 }
-void		 GenerateUserStructData(std::string name)
+void		 GenerateUserStructData(const std::string &name)
 {
 	SUser user1;
 	user1.id = GenerateId();

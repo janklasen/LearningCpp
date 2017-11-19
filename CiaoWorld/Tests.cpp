@@ -1,12 +1,13 @@
 #include "stdafx.h"			//needed for VS
 
 //this file houses test function(s)
-
+//TODO (19/11/17): error codes based on arrays per function to improve usability and scalability
 #include "MathFunctions.h"	//for  math functions
 #include <iostream>			//for std::cout
+#include "Tests.h"			//for error structs
 
 
-int TestSimpleMath()
+short TestSimpleMath()
 {
 	//includes unit tests for several basic math functions
 
@@ -28,7 +29,7 @@ int TestSimpleMath()
 	std::cout << "Simple math: NO ERRORS\n";
 	return 0;
 }
-int TestArraySort()
+short TestArraySort()
 {
 	//initialize arrays and length
 	int array1[] = { 1 , 100, -2 , 0 };
@@ -53,4 +54,27 @@ int TestArraySort()
 	//no errors
 	std::cout << "Array Sorting: NO ERRORS.\n";
 	return 0;
+}
+short TestSFraction()
+{
+	//test the functions related to SFraction struct
+
+	SFraction fractionA = { 1,2 };
+	SFraction fractionB = { 2,1 };
+
+	double result1 = MultiplyTwoFractionStructs(fractionA, fractionB);
+
+	if (result1 != 1) return 1;
+
+	std::cout << "Fraction Structs: NO ERRORS.\n";
+	return 0;
+
+
+}
+
+void QuickTest()
+{
+	TestSimpleMath();
+	TestArraySort();
+	TestSFraction();
 }
